@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercicio 4</title>
+    <title>Exercicio 5</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -23,7 +23,7 @@
                 <label for="num2" class="form-label fw-bold">Digite a terceira nota: </label>
                 <input type="number" id="valor3" name="valor3" class="form-control" required="">
             </div>
-            <button type="submit" class="btn btn-primary">Calcular média</button>
+            <button type="submit" class="btn btn-primary">Calcular</button>
         </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == "POST")//$_SERVER é um array, por isso usa [], quero a posição REQUEST_METHOD.

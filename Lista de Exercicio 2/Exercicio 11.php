@@ -16,7 +16,7 @@
                 <input type="number" id="raio" name="raio" class="form-control" required="">
             </div>
 
-            <button type="submit" class="btn btn-primary">Calcular a área</button>
+            <button type="submit" class="btn btn-primary">Calcular</button>
         </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == "POST")//$_SERVER é um array, por isso usa [], quero a posição REQUEST_METHOD.

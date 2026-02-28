@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <main class="container mt-5">
+
+        <form class="row mt-3">
+            <div class="row">
+                <h1>Billing address</h1>
+                <div class="col-4">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" id="firstName" placeholder="Informe o nome..." required class="form-control">
+                </div>
+
+                <div class="col-4">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" id="lastName" placeholder="Informe o sobrenome" required class="form-control">
+                </div>
+
+                <div class="col-4">
+                    <label for ="userName" class="form-label">Username</label>
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">@</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="email" class="form-label">Email (Optional)</label>
+                    <input type="email" id="email" placeholder="user@gmail.com" class="form-control">
+                </div>
+
+                <div class="col-4">
+                    <label for="adress" class="form-label">Adress</label>
+                    <input type="text" id="adress" placeholder="1234 Main St" required class="form-control">
+                </div>
+
+                <div class="col-4">
+                    <label for="adressSec" class="form-label">Adress Secondary (Optional)</label>
+                    <input type="text" id="adressSec" placeholder="Apartment or suite" class="form-control">
+                </div>
+
+                <div class="col-4">
+                    <label for="country" class="form-label">Country</label>
+                    <select class="form-select">
+                        <option>Brasil</option>
+                        <option>Argentina</option>
+                        <option>Australia</option>
+                        <option>China</option>
+                        <option>Japão</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label for="State" class="form-label">State</label>
+                    <select class="form-select">
+                        <option>x</option>
+                        <option>y</option>
+                        <option>a</option>
+                        <option>bc</option>
+                        <option>estado 4</option>
+                    </select>
+                </div>
+                    
+                <div class="col-3 mt-3">
+                    <label for="Zip" class="form-label">Zip</label>
+                    <input type="text" id="Zip" placeholder="Zip" required class="form-control">
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

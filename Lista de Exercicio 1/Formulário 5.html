@@ -6,73 +6,81 @@
     <title>Exercicio 5</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-light"> <!--Coloquei uma cor cinza claro para ficar mais parecido com o formulario do exercicio-->
     <main class="container mt-5">
-
-        <form class="row mt-3">
-            <div class="row">
-                <h1>Billing address</h1>
-                <div class="col-4">
-                    <label for="firstName" class="form-label">First name</label>
-                    <input type="text" id="firstName" placeholder="Informe o nome..." required class="form-control">
-                </div>
-
-                <div class="col-4">
-                    <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" id="lastName" placeholder="Informe o sobrenome" required class="form-control">
-                </div>
-
-                <div class="col-4">
-                    <label for ="userName" class="form-label">Username</label>
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">@</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+        <div class="row justify-content-center"> <!--Centralizo a row-->
+            <div class="col-8">
+                <div class="card shadow"> <!--Faço aquele "conteiner q envolve todo o formulário, e a classe shadow da uma sombra ao card"-->
+                    <div class="card-body p-4"> <!--uso para colocar um padding no card, em todos os lados-->
+                        <h3 class="mb-3">Billing Adress</h3>
+                        <form class="row g-3">
+                            <div class="col-6">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" id="firstName" placeholder="Informe o nome..." required class="form-control">
+                            </div>
+                            
+                            <div class="col-6">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" id="lastName" placeholder="Informe o sobrenome" required class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <label for="userName" class="form-label">Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">@</span>
+                                    <input type="text" class="form-control" id="userName" placeholder="Username" required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label> 
+                                <input type="email" id="email" placeholder="you@example.com" class="form-control">
+                                <!--Tirei o (optional do label e utilizei um span com text-muted, que faz dar aquele efeito do texto mais cinza e opaca, para ficar igual o exercicio)-->
+                            </div>
+                            <div class="col-12">
+                                <label for="adress" class="form-label">Address</label>
+                                <input type="text" id="adress" placeholder="1234 Main St" required class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <label for="adressSec" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+                                <input type="text" id="adressSec" placeholder="Apartment or suite" class="form-control">
+                            </div>
+                            
+                            <div class="col-md-5">
+                                <label for="country" class="form-label">Country</label>
+                                <select id="country" class="form-select" required>
+                                    <option selected disabled>Selecione</option>
+                                    <option>Brasil</option>
+                                    <option>Argentina</option>
+                                    <option>Australia</option>
+                                    <option>China</option>
+                                    <option>Japão</option>
+                                </select>
+                            </div>
+                            
+                            
+                            <div class="col-md-4">
+                                <label for="state" class="form-label">State</label>
+                                <select id="state" class="form-select" required>
+                                    <option selected disabled>Selecione</option>
+                                    <option>x</option>
+                                    <option>y</option>
+                                    <option>a</option>
+                                    <option>bc</option>
+                                    <option>estado 4</option>
+                                </select>
+                            </div>
+                            
+                            
+                            <div class="col-md-3">
+                                <label for="zip" class="form-label">Zip</label>
+                                <input type="text" id="zip" placeholder="Zip" required class="form-control">
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="col-4">
-                    <label for="email" class="form-label">Email (Optional)</label>
-                    <input type="email" id="email" placeholder="user@gmail.com" class="form-control">
-                </div>
-
-                <div class="col-4">
-                    <label for="adress" class="form-label">Adress</label>
-                    <input type="text" id="adress" placeholder="1234 Main St" required class="form-control">
-                </div>
-
-                <div class="col-4">
-                    <label for="adressSec" class="form-label">Adress Secondary (Optional)</label>
-                    <input type="text" id="adressSec" placeholder="Apartment or suite" class="form-control">
-                </div>
-
-                <div class="col-4">
-                    <label for="country" class="form-label">Country</label>
-                    <select class="form-select">
-                        <option>Brasil</option>
-                        <option>Argentina</option>
-                        <option>Australia</option>
-                        <option>China</option>
-                        <option>Japão</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <label for="State" class="form-label">State</label>
-                    <select class="form-select">
-                        <option>x</option>
-                        <option>y</option>
-                        <option>a</option>
-                        <option>bc</option>
-                        <option>estado 4</option>
-                    </select>
-                </div>
-                    
-                <div class="col-3 mt-3">
-                    <label for="Zip" class="form-label">Zip</label>
-                    <input type="text" id="Zip" placeholder="Zip" required class="form-control">
-                </div>
             </div>
-        </form>
+        </div>            
     </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

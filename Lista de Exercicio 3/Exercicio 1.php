@@ -10,29 +10,32 @@
 <div class="container py-3">
     <h1>Exercicio 1</h1>
     <form method="post">
+        <?php for ($i = 1; $i <= 7; $i++){?>
         <div class="mb-3">
-            <label for="valor" class="form-label">Informe um valor:</label>
-            <input type="text" id="valor" name="valor" class="form-control" required="">
-            <input type="text" id="valor2" name="valor2" class="form-control" required="">
-            <input type="text" id="valor3" name="valor3" class="form-control" required="">
-            <input type="text" id="valor4" name="valor4" class="form-control" required="">
-            <input type="text" id="valor5" name="valor5" class="form-control" required="">
-            <input type="text" id="valor6" name="valor6" class="form-control" required="">
-            <input type="text" id="valor7" name="valor7" class="form-control" required="">
+            <label for="n<?php echo $i ?>" class="form-label">Informe um valor:</label>
+            <input type="number" id="n<?php echo $i ?>" name="n<?php echo $i ?>" class="form-control" required="">
         </div>
+        <?php } ?>
 
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
     <?php
-    if ($_SERVER['REQUEST_METHOD'] == ["POST"])
+    if ($_SERVER['REQUEST_METHOD'] == "POST")
     {
-        $valor1 = $_POST['valor'];
-        $valor2 = $_POST['valor2'];
-        $valor3 = $_POST['valor3'];
-        $valor4 = $_POST['valor4'];
-        $valor5 = $_POST['valor5'];
-        $valor6 = $_POST['valor6'];
-        $valor7 = $_POST['valor7'];
+        $menor = $_POST['n1'];
+        $posicao = 1;
+        for ($i = 2; $i <= 7; $i++)
+        {
+            $numero = $_POST["n$i"];
+
+            if ($numero < $menor)
+            {
+                $menor = $numero;
+                $posicao = $i;
+            }
+        }
+        echo "<p>Menor valor: $menor</p>";
+        echo "<p>Posição: $posicao</p>";
         
     }
     ?>

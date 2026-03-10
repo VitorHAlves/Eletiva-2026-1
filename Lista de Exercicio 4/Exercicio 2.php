@@ -18,11 +18,13 @@
             <button type="submit" class="btn btn-primary">Avançar</button>
         </form>
         <?php
-        if ($_SERVER['REQUEST_METHOD'] == "POST")//$_SERVER é um array, por isso usa [], quero a posição REQUEST_METHOD.
-        {//método usado para requisição.
-            $valor1 = $_POST['valor1'];//leio 1 campo do formulari
-            $qntd = mb_strlen($valor1);
-            echo "A quantidade de letras na palavra $valor1 é: $qntd";
+        if ($_SERVER['REQUEST_METHOD'] == "POST")
+        {
+            $valor1 = $_POST['valor1'];
+            $palavra_minuscula = strtolower($valor1);
+            $palavra_maiuscula = strtoupper($valor1);
+            echo "<p>A palavra: $valor1 toda maiuscula é: $palavra_maiuscula</p>";
+            echo "<p>E a palavra minuscula é: $palavra_minuscula";
         }
         ?>
 

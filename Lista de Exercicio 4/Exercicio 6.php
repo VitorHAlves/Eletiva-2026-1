@@ -22,18 +22,13 @@
         {
             $valor1 = $_POST['valor1'];
             $valorfloat = (float)$valor1;
-            if (is_float($valorfloat))
-            {
-                $valor_arrendodadoC = ceil($valorfloat);
-                $valor_arrendodadoB = floor($valorfloat);
-                $valor_arrendodado = round($valorfloat);
-                echo "<p>O valor arredondado para cima é: $valor_arrendodadoC</p>";
-                echo "<p>O valor arredondado para baixo é: $valor_arrendodadoB</p>";
-                echo "<p>O valor arredondado é: $valor_arrendodado</p>";
-
-            }
+            $valor_arrendodadoC = ceil($valorfloat);
+            $valor_arrendodadoB = floor($valorfloat);
+            $valor_arrendodado = round($valorfloat);
+            echo "<p>O valor arredondado para cima é: $valor_arrendodadoC</p>";
+            echo "<p>O valor arredondado para baixo é: $valor_arrendodadoB</p>";
+            echo "<p>O valor arredondado é: $valor_arrendodado</p>";
                 
-        
         }
         ?>
 

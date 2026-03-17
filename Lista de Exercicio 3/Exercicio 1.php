@@ -10,30 +10,52 @@
 <div class="container py-3">
     <h1>Exercicio 1</h1>
     <form method="post">
-        <?php for ($i = 1; $i <= 7; $i++){?>
         <div class="mb-3">
-            <label for="n<?php echo $i ?>" class="form-label">Informe um valor:</label>
-            <input type="number" id="n<?php echo $i ?>" name="n<?php echo $i ?>" class="form-control" required="">
+            <label for="valor1" class="form-label">Informe um valor:</label>
+            <input type="number" id="valor1" name="valor1" class="form-control" required="">
         </div>
-        <?php } ?>
+        <div class="mb-3">
+            <label for="valor2" class="form-label">Informe um valor:</label>
+            <input type="number" id="valor2" name="valor2" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+            <label for="valor3" class="form-label">Informe um valor:</label>
+            <input type="number" id="valor3" name="valor3" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+            <label for="valor4" class="form-label">Informe um valor:</label>
+            <input type="number" id="valor4" name="valor4" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+            <label for="valor5" class="form-label">Informe um valor:</label>
+            <input type="number" id="valor5" name="valor5" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+            <label for="valor6" class="form-label">Informe um valor:</label>
+            <input type="number" id="valor6" name="valor6" class="form-control" required="">
+        </div>
+        <div class="mb-3">
+            <label for="valor7" class="form-label">Informe um valor:</label>
+            <input type="number" id="valor7" name="valor7" class="form-control" required="">
+        </div>
 
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST")
     {
-        $menor = $_POST['n1'];
+        $menor = $_POST['valor1'];
+        $valor2 = $_POST['valor2'];
+        $valor3 = $_POST['valor3'];
+        $valor4 = $_POST['valor4'];
+        $valor5 = $_POST['valor5'];
+        $valor6 = $_POST['valor6'];
+        $valor7 = $_POST['valor7'];
         $posicao = 1;
-        for ($i = 2; $i <= 7; $i++)
+        for($i=1;$i<=7;$i++)
         {
-            $numero = $_POST["n$i"];
-
-            if ($numero < $menor)
-            {
-                $menor = $numero;
-                $posicao = $i;
-            }
         }
+
         echo "<p>Menor valor: $menor</p>";
         echo "<p>Posição: $posicao</p>";
         

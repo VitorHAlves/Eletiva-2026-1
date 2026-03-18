@@ -29,11 +29,7 @@
             
             if ($valorA > $valorB)
             {
-                for ($i = $valorB;$i<$valorA;$i++)
-                {
-                    echo "$i ";
-                }
-                echo "$valorA ";
+                echo "$valorB"." ".$valorA;
 
             }
             if ($valorA == $valorB)

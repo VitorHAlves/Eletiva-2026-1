@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercicio 3</title>
+    <title>Exercicio 4</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -13,33 +13,23 @@
         <form method="post">
             <div class="mb-3">
                 <label for="valor1" class="form-label fw-bold">Digite um número: </label>
-                <input type="number" id="valor1" name="valor1" class="form-control" required="">
-            </div>
-            <div class="mb-3">
-                <label for="valor2" class="form-label fw-bold">Digite um número: </label>
-                <input type="number" id="valor2" name="valor2" class="form-control" required="">
+                <input type="number" step ="0.01" id="valor1" name="valor1" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Calcular</button>
         </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == "POST")
         {
-            $valorA = $_POST['valor1'];//maior  
-            $valorB = $_POST['valor2'];//menor
+            $valorP = $_POST['valor1'];
             
-            if ($valorA > $valorB)
+            if ($valorP > 100.00)
             {
-                for ($i = $valorB;$i<$valorA;$i++)
-                {
-                    echo "$i ";
-                }
-                echo "$valorA ";
-
+                $novo_valor = $valorP + ($valorP * 0.15);
+                echo "<p>Valor acima de R$ 100,00!</p>";
+                echo "<p>Novo valor(aumento de 15%): R$ $novo_valor</p>";
             }
-            if ($valorA == $valorB)
-            {
-                echo "Numeros iguais: $valorA";
-            }
+            else
+                echo "<p>Valor normal! R$ $valorP</p>";
         }
         ?>
 

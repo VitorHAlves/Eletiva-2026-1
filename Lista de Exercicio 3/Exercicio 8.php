@@ -15,7 +15,7 @@
                 <label for="valor1" class="form-label fw-bold">Digite um número: </label>
                 <input type="number" id="valor1" name="valor1" class="form-control" required="">
             </div>
-            <button type="submit" class="btn btn-primary">Calcular</button>
+            <button type="submit" class="btn btn-primary">Avançar</button>
         </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == "POST")

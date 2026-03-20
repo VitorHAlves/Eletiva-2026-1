@@ -34,13 +34,13 @@
                 foreach($titulos as $chave => $valorTit)//chave associada a um valor
                 {
                     $mapa[$valorTit] = $quantidades[$chave];
-                    ksort($mapa);
                     if ($mapa[$valorTit] < 5)
                     {
                         echo "<p>O livro: $valorTit, está com o estoque baixo($mapa[$valorTit]).</p>";
-
+                        
                     }
                 }
+                ksort($mapa);
                 print_r($mapa);
             }
         ?>

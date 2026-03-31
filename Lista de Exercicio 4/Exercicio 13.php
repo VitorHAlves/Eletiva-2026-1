@@ -12,7 +12,7 @@
     <div class="container py-3">
         <form method="post">
             <div class="mb-3">
-                <label for="num1" class="form-label fw-bold">Digite uma palavra: </label>
+                <label for="valor1" class="form-label fw-bold">Digite uma palavra: </label>
                 <input type="text" id="valor1" name="valor1" class="form-control" required="">
             </div>
             <button type="submit" class="btn btn-primary">Avançar</button>

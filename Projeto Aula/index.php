@@ -25,11 +25,20 @@
 
             <button type="submit" class="btn btn-primary w-100">Entrar</button>
             <?php
+                require_once('conexao.php');
                 session_start();
                 if ($_SERVER['REQUEST_METHOD'] == "POST")
                 {
                     $email = $_POST['email'];
                     $senha = $_POST['senha'];
+                    try{
+                        $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
+                        $stmt->execute([$email]);
+                        $usuario = $stmt->fetch();
+                        var_dump($usuario);
+                    } catch(Exception $e){
+                        echo "Erro: ". $e->getMessage();
+                    }
                     if($email == "adm@adm" && $senha == '123')
                     {
                         $_SESSION['nome'] = 'Administrador';

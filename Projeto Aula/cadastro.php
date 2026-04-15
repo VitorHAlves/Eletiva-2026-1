@@ -12,20 +12,20 @@
     <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
         <h3 class="text-center mb-4">Cadastro</h3>
 
-        <form>
+        <form method="post">
             <div class="mb-3">
                 <label class="form-label">Nome</label>
-                <input type="text" class="form-control" placeholder="Digite seu nome" required>
+                <input type="text" name="nome" class="form-control" placeholder="Digite seu nome" required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control" placeholder="Digite seu email" required>
+                <input type="email" name="email" class="form-control" placeholder="Digite seu email" required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Senha</label>
-                <input type="password" class="form-control" placeholder="Crie uma senha" required>
+                <input type="password" name="senha" class="form-control" placeholder="Crie uma senha" required>
             </div>
 
             <button type="submit" class="btn btn-success w-100">Cadastrar</button>
@@ -34,6 +34,32 @@
                 <a href="index.php">Já tenho conta</a>
             </div>
         </form>
+
+        <?php
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+                require_once('conexao.php');
+                $nome = $_POST['nome'];
+                $email = $_POST['email'];
+                $senha = password_hash($_POST['senha'],PASSWORD_BCRYPT);
+                try
+                {
+                    $stmt = $conexao->prepare('INSERT INTO usuarios (nome,email,senha) VALUES (?, ?, ?);');//? -> apelido pra n colocar direto a variavle do bd
+                    if($stmt->execute([$nome,$email,$senha]))
+                    {
+                        echo "<p>Cadastro realizado! Faça o login!</p>";
+                    }
+                    else
+                    {
+                        echo "<p>Erro ao cadastrar! Tente novamente</p>";
+                    }
+                }
+                catch(Exception $e)
+                {
+                    echo "Erro: ".$e->getMessage();
+                }
+            }
+        ?>
     </div>
 </div>
 

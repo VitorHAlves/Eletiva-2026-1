@@ -31,25 +31,26 @@
                 {
                     $email = $_POST['email'];
                     $senha = $_POST['senha'];
-                    try{
+                    try
+                    {
                         $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
                         $stmt->execute([$email]);
                         $usuario = $stmt->fetch();
-                        var_dump($usuario);
-                    } catch(Exception $e){
+                        $senha_correta = password_verify($senha,$usuario['senha']);
+                        if($usuario && $senha_correta)
+                        {
+                            $_SESSION['nome'] = $usuario['nome'];
+                            $_SESSION['acesso'] = true; 
+                            header('Location: principal.php');
+                        }
+                        else
+                        {
+                            echo "<p class='text-danger> Credenciais inváidas!</p>";
+                        }
+                    } 
+                    catch(Exception $e)
+                    {
                         echo "Erro: ". $e->getMessage();
-                    }
-                    if($email == "adm@adm" && $senha == '123')
-                    {
-                        $_SESSION['nome'] = 'Administrador';
-                        $_SESSION['acesso'] = true;
-                        $_SESSION['email'] = 
-                        header('Location: principal.php');
-                    }
-                    else
-                    {
-                        $_SESSION['acesso'] = false;
-                        echo "<p class='text-danger'>Email e/ou senha incorretos!</p>";
                     }
                 }
             ?>

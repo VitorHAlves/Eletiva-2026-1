@@ -17,10 +17,10 @@
         $nome = $_POST['nome'];
         try
             {
-                $stmt = $conexao->prepare('INSERT INTO categorias (nome) VALUES (?);');//? -> apelido pra n colocar direto a variavle do bd
+                $stmt = $conexao->prepare('INSERT INTO categoria (nome) VALUES (?);');//? -> apelido pra n colocar direto a variavle do bd
                 if($stmt->execute([$nome]))
                 {
-                    echo "<p>Cadastro realizado! Faça o login!</p>";
+                    echo "<p>Cadastro realizado!</p>";
                 }
                 else
                 {

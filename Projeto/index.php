@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistema de Controle de Frotas de Táxi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
@@ -28,20 +29,28 @@
                 session_start();
                 if ($_SERVER['REQUEST_METHOD'] == "POST")
                 {
+                    require_once('conexao.php');
                     $email = $_POST['email'];
                     $senha = $_POST['senha'];
-                    if($email == "adm@adm" && $senha == '123')
+                    try
                     {
-                        $_SESSION['nome'] = 'Administrador';
-                        $_SESSION['acesso'] = true;
-                        $_SESSION['email'] = 
-                        header('Location: principal.php');
+                        $stmt = $conexao->prepare("SELECT * FROM usuario WHERE email = ?");
+                        $stmt->execute([$email]);
+                        $usuario = $stmt->fetch();
+                        $senha_correta = password_verify($senha,$usuario['senha']);
+                        if ($usuario && $senha_correta)
+                            {
+                                $_SESSION['nome'] = $usuario['nome'];
+                                $_SESSION['acesso'] = true;
+                                header('Location: principal.php');
+                            }
+                        else{
+                            echo "<p class='text-danger'> Credenciais Inválidas!</p>";
+                        }
+                    } catch(Exception $e){
+                        echo "Erro: ".$e->getMessage();
                     }
-                    else
-                    {
-                        $_SESSION['acesso'] = false;
-                        echo "<p class='text-danger'>Email e/ou senha incorretos!</p>";
-                    }
+                
                 }
             ?>
             <div class="text-center mt-3">

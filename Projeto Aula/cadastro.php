@@ -44,7 +44,7 @@
                 $senha = password_hash($_POST['senha'],PASSWORD_BCRYPT);
                 try
                 {
-                    $stmt = $conexao->prepare('INSERT INTO usuarios (nome,email,senha) VALUES (?, ?, ?);');//? -> apelido pra n colocar direto a variavle do bd
+                    $stmt = $conexao->prepare('INSERT INTO usuario (nome,email,senha) VALUES (?, ?, ?);');//? -> apelido pra n colocar direto a variavle do bd
                     if($stmt->execute([$nome,$email,$senha]))
                     {
                         echo "<p>Cadastro realizado! Faça o login!</p>";

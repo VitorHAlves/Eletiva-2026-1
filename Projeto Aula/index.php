@@ -33,7 +33,7 @@
                     $senha = $_POST['senha'];
                     try
                     {
-                        $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
+                        $stmt = $conexao->prepare("SELECT * FROM usuario WHERE email = ?");
                         $stmt->execute([$email]);
                         $usuario = $stmt->fetch();
                         $senha_correta = password_verify($senha,$usuario['senha']);

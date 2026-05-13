@@ -13,19 +13,19 @@
 <h1>Consultar Veículo</h1>
 <form id="formExcluir" method="post" action ="consultar_veiculo.php?id=<?=  $resultado['id'] ?>">
     <div class="mb-3">
-        <label for="placa" class="form-label">Informe a Placa do veículo</label>
+        <label for="placa" class="form-label">Placa</label>
         <input value="<?= $resultado['Placa'] ?>" type="text" id="placa" name="placa" class="form-control" readonly>
     </div>
         <div class="mb-3">
-        <label for="modelo" class="form-label">Informe o Modelo do veículo</label>
+        <label for="modelo" class="form-label">Modelo</label>
         <input value="<?= $resultado['Modelo'] ?>"  type="text" id="modelo" name="modelo" class="form-control" readonly>
     </div>
         <div class="mb-3">
-        <label for="cor" class="form-label">Informe a cor do veículo</label>
+        <label for="cor" class="form-label">Cor</label>
         <input value="<?= $resultado['Cor'] ?>"  type="text" id="cor" name="cor" class="form-control" readonly>
     </div>
         <div class="mb-3">
-        <label for="fabricante" class="form-label">Informe o Fabricante do veículo</label>
+        <label for="fabricante" class="form-label">Fabricante</label>
         <input value= "<?= $resultado['Fabricante'] ?>"  type="text" id="fabricante" name="fabricante" class="form-control" readonly>
     </div>
     <div class="d-flex gap-2">

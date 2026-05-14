@@ -1,6 +1,6 @@
 <?php
-    require_once('cabecalho.php');
-    require_once('conexao.php');
+    require_once('../cabecalho.php');
+    require_once('../conexao.php');
     try{
         $stmt = $conexao->query('SELECT * FROM Veiculos');
         $resultado = $stmt->fetchAll();
@@ -12,7 +12,7 @@
 
 <h2>Veículos</h2>
     <a href="novo_veiculo.php" class="btn btn-success mb-3">Novo Registro</a>
-    <a href="principal.php" class="btn btn-secondary mb-3 me-2">Voltar</a>
+    <a href="../principal.php" class="btn btn-secondary mb-3 me-2">Voltar</a>
     <table class="table table-hover table-striped">
     <thead>
         <tr>
@@ -42,5 +42,5 @@
         
         
 <?php
-    require_once('rodape.php');
+    require_once('../rodape.php');
 ?>

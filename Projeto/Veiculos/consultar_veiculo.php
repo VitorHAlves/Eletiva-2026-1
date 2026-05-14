@@ -1,6 +1,6 @@
 <?php
-    require_once('cabecalho.php');
-    require_once('conexao.php');
+    require_once('../cabecalho.php');
+    require_once('../conexao.php');
     try{
         $stmt = $conexao->prepare('SELECT * FROM Veiculos WHERE id=?');
         $stmt->execute([$_GET['id']]);
@@ -85,6 +85,6 @@
   </div>
 </div>
 <?php
-    require_once('rodape.php');
+    require_once('../rodape.php');
     
 ?>

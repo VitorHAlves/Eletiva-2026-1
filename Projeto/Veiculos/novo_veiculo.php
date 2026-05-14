@@ -1,5 +1,5 @@
 <?php
-    require_once('cabecalho.php');
+    require_once('../cabecalho.php');
 ?>
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -66,5 +66,5 @@
 ?>
 
 <?php
-    require_once('rodape.php');
+    require_once('../rodape.php');
 ?>

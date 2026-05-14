@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistema</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="principal.php">Início</a>
+            <a class="nav-link" aria-current="page" href="../principal.php">Início</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -38,7 +38,7 @@
               Funções Básicas
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdown2">
-              <li><a class="dropdown-item" href="crud_veiculos.php">Cadastro de Veículos</a></li>
+              <li><a class="dropdown-item" href="Veiculos/crud_veiculos.php">Cadastro de Veículos</a></li>
               <li><a class="dropdown-item" href="crud_passageiros.php">Cadastro de Passageiros</a></li>
               <li><a class="dropdown-item" href="crud_motoristas.php">Cadastro de Motoristas</a></li>
               <li><a class="dropdown-item" href="crud_viagens.php">Cadastro de Viagens</a></li>

@@ -1,30 +1,47 @@
 <?php
     require_once('cabecalho.php');
 ?>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+                <div class="card shadow rounded-4 border-0">
+                    <div class="card-header bg-dark text-white py-3 rounded-top-4">
+                        <h5 class="mb-0 px-2">| Novo Veículo</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="post">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="placa" class="form-label">Placa</label>
+                                    <input type="text" id="placa" name="placa" class="form-control" required="">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="modelo" class="form-label">Modelo</label>
+                                    <input type="text" id="modelo" name="modelo" class="form-control" required="">
+                                </div>
+                            </div>
 
-<h1>Novo Veículo</h1>
-<form method="post">
-    <div class="mb-3">
-        <label for="placa" class="form-label">Informe a Placa do veículo</label>
-        <input type="text" id="placa" name="placa" class="form-control" required="">
+                            <div class ="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label for="cor" class="form-label">Cor</label>
+                                    <input type="text" id="cor" name="cor" class="form-control" required="">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="fabricante" class="form-label">Fabricante</label>
+                                    <input type="text" id="fabricante" name="fabricante" class="form-control" required="">
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                <a href="crud_veiculos.php" class="btn btn-secondary">Voltar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-        <div class="mb-3">
-        <label for="modelo" class="form-label">Informe o Modelo do veículo</label>
-        <input type="text" id="modelo" name="modelo" class="form-control" required="">
-    </div>
-        <div class="mb-3">
-        <label for="cor" class="form-label">Informe a cor do veículo</label>
-        <input type="text" id="cor" name="cor" class="form-control" required="">
-    </div>
-        <div class="mb-3">
-        <label for="fabricante" class="form-label">Informe o Fabricante do veículo</label>
-        <input type="text" id="fabricante" name="fabricante" class="form-control" required="">
-    </div>
-    <div class="d-flex gap-2">
-    <button type="submit" class="btn btn-primary">Enviar</button>
-    <a href="crud_veiculos.php" class="btn btn-secondary">Voltar</a>
-    </div>
-</form>
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {

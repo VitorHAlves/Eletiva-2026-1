@@ -2,7 +2,7 @@
     require_once('cabecalho.php');
     require_once('conexao.php');
     try{
-        $stmt = $conexao->prepare('SELECT * FROM passageiros WHERE id=?');
+        $stmt = $conexao->prepare('SELECT * FROM Passageiros WHERE id=?');
         $stmt->execute([$_GET['id']]);
         $resultado = $stmt->fetch();
     } catch(Exception $e){
@@ -36,7 +36,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $id = $_GET['id'];
         try{
-            $sql = "DELETE FROM passageiros WHERE id = ?";
+            $sql = "DELETE FROM Passageiros WHERE id = ?";
             $stmt = $conexao->prepare($sql);
             if($stmt->execute([$id])){
                 header('Location:crud_passageiros.php');

@@ -29,7 +29,7 @@
             $email = $_POST['email'];
             $telefone = $_POST['telefone'];
             try{
-                $stmt = $conexao->prepare('INSERT INTO passageiros (nome,email,telefone) VALUES (?,?,?);');
+                $stmt = $conexao->prepare('INSERT INTO Passageiros (nome,email,telefone) VALUES (?,?,?);');
                 if($stmt-> execute([$nome,$email,$telefone]))
                     {
                         echo "<p>Cadastro Realizado!</p>";

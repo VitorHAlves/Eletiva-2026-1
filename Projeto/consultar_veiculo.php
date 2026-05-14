@@ -9,7 +9,23 @@
         echo "Erro!".$e->getMessage();
     }
 ?>
-
+<?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $id = $_GET['id'];
+        try{
+            $sql = "DELETE FROM Veiculos WHERE id = ?";
+            $stmt = $conexao->prepare($sql);
+            if($stmt->execute([$id])){
+                header('Location:crud_veiculos.php');
+            }
+            else{
+                echo "Erro ao excluir";
+            }
+        } catch(Exception $e){
+            echo "Erro: ".$e->getMessage();
+        }
+    }
+?>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
@@ -51,23 +67,6 @@
             </div>
         </div>
     </div>
-<?php
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $id = $_GET['id'];
-        try{
-            $sql = "DELETE FROM Veiculos WHERE id = ?";
-            $stmt = $conexao->prepare($sql);
-            if($stmt->execute([$id])){
-                header('Location:crud_veiculos.php');
-            }
-            else{
-                echo "Erro ao excluir";
-            }
-        } catch(Exception $e){
-            echo "Erro: ".$e->getMessage();
-        }
-    }
-?>
 <div class="modal fade" id="modalExcluir" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

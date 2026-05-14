@@ -12,6 +12,7 @@
 
 <h2>Veículos</h2>
     <a href="novo_veiculo.php" class="btn btn-success mb-3">Novo Registro</a>
+    <a href="principal.php" class="btn btn-secondary mb-3 me-2">Voltar</a>
     <table class="table table-hover table-striped">
     <thead>
         <tr>

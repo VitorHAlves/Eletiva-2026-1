@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="submit" class="btn btn-primary">Alterar</button>
                             <a href="crud_motoristas.php" class="btn btn-secondary">Voltar</a>
                         </div>
                     </form>

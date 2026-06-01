@@ -34,7 +34,7 @@
                     <h5 class="mb-0 px-2">| Consultar Motorista</h5>
                 </div>
                 <div class="card-body p-4">
-                    <form method="post">
+                    <form id="formExcluir" method="post" action ="consultar_motorista.php?id=<?=  $resultado['id'] ?>">
                         <div class="row g-3 mb-3">
                             <div class="col-md-7">
                                 <label for="nome" class="form-label">Nome</label>
@@ -86,7 +86,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Você tem certeza que deseja remover este passageiro? Esta operação é permanente.
+        Você tem certeza que deseja remover este motorista? Esta operação é permanente.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

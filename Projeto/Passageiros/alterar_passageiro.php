@@ -8,7 +8,7 @@
         $telefone = $_POST['telefone'];
         $id = $_GET['id'];
         try{
-            $sql = "UPDATE passageiros SET nome = ?, email = ?, telefone = ? WHERE id = ?";
+            $sql = "UPDATE Passageiros SET nome = ?, email = ?, telefone = ? WHERE id = ?";
             $stmt = $conexao->prepare($sql);
             if ($stmt->execute([$nome,$email,$telefone,$id]))
             {
@@ -22,7 +22,7 @@
         }
     }
     try{
-        $stmt = $conexao->prepare("SELECT * FROM passageiros WHERE id = ?");
+        $stmt = $conexao->prepare("SELECT * FROM Passageiros WHERE id = ?");
         $stmt->execute([$_GET['id']]);
         $resultado = $stmt->fetch();
     } catch(Exception $e){

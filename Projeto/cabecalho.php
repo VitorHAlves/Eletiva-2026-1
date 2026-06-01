@@ -40,7 +40,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdown2">
               <li><a class="dropdown-item" href="/Veiculos/crud_veiculos.php">Cadastro de Veículos</a></li>
               <li><a class="dropdown-item" href="/Passageiros/crud_passageiros.php">Cadastro de Passageiros</a></li>
-              <li><a class="dropdown-item" href="crud_motoristas.php">Cadastro de Motoristas</a></li>
+              <li><a class="dropdown-item" href="/Motoristas/crud_motoristas.php">Cadastro de Motoristas</a></li>
               <li><a class="dropdown-item" href="crud_viagens.php">Cadastro de Viagens</a></li>
             </ul>
           </li>

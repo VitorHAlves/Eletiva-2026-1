@@ -45,7 +45,7 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-            require_once('conexao.php');
+            require_once('../conexao.php');
             $placa = $_POST['placa'];
             $modelo = $_POST['modelo'];
             $cor = $_POST['cor'];

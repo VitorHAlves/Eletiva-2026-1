@@ -665,6 +665,11 @@ body.bg-light .container {
     padding: 12px 16px !important;
     border-color: #F0F1F6 !important;
     vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.table thead th {
+    text-align: center !important;
 }
 
 /* ── Botões de ação na tabela ── */
@@ -749,4 +754,10 @@ body:not(.bg-light) {
     border-color: var(--cinza-dark) !important;
     color: var(--amarelo) !important;
     box-shadow: 0 4px 14px rgba(26,26,46,.25) !important;
+}
+
+
+/* Evita quebra de texto nas células — funciona junto com table-responsive */
+.table-responsive .table tbody td {
+    white-space: nowrap;
 }

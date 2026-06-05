@@ -49,7 +49,7 @@
                     <td><?= $r['nome_passageiro'] ?></td>
                     <td><?= $r['nome_motorista'] ?></td>
                     <td class="d-flex gap-2">
-                    <a href="alterar_viagens.php?id=<?= $r['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="alterar_viagem.php?id=<?= $r['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
                     <a href="consultar_viagens.php?id=<?= $r['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                     </td>  
                 </tr>

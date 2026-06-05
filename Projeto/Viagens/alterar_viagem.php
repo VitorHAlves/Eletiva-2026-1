@@ -61,8 +61,8 @@
                     <h5 class="mb-0 px-2">| Alterar viagem</h5>
                 </div>
                 <?php if (!empty($mensagem)): ?>
-                    <div class="alert alert-info mt-2 mx-4">
-                        <?= $mensagem ?>
+                    <div class="alert alert-success text-center">
+                        <strong><?= $mensagem ?></strong>
                     </div>
                 <?php endif; ?>
                 <div class="card-body p-4">

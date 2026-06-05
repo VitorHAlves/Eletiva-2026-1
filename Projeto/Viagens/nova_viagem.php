@@ -14,6 +14,32 @@
     } catch(Exception $e){
         die("Erro: ".$e->getMessage());
     }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            require_once('../conexao.php');
+            $destino = $_POST['destino'];
+            $data = $_POST['data'];
+            $valor = $_POST['valor'];
+            $hora_inicio = $_POST['hora_inicio'];
+            $hora_fim = $_POST['hora_fim'];
+            $veiculo = $_POST['veiculo_id'];
+            $motorista = $_POST['motorista_id'];
+            $passageiro = $_POST['passageiro_id'];
+            try{
+                $stmt = $conexao->prepare('INSERT INTO Viagens (destino,data,valor,hora_inicio,hora_fim,Veiculos_id,Motoristas_id,Passageiros_id) VALUES (?,?,?,?,?,?,?,?);');
+                if($stmt-> execute([$destino,$data,$valor,$hora_inicio,$hora_fim,$veiculo,$motorista,$passageiro]))
+                    {
+                        $mensagem = "<p>Cadastro Realizado!</p>";
+                    }
+                    else{
+                        echo "<p>Erro ao cadastrar! Tente novamente</p>";
+                    }
+            } catch(Exception $e){
+                echo "Erro: ".$e->getMessage();
+            }
+        }
+
+
 ?>
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -22,6 +48,11 @@
                 <div class="card-header bg-dark text-white py-3 rounded-top-4">
                     <h5 class="mb-0 px-2">| Nova viagem</h5>
                 </div>
+                <?php if (!empty($mensagem)): ?>
+                    <div class="alert alert-success text-center">
+                        <strong><?= $mensagem ?></strong>
+                    </div>
+                <?php endif; ?>
                 <div class="card-body p-4">
                     <form method="post">
                         <div class="row g-3 mb-3">
@@ -92,32 +123,6 @@
         </div>
     </div>
 </div>
-<?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-        {
-            require_once('../conexao.php');
-            $destino = $_POST['destino'];
-            $data = $_POST['data'];
-            $valor = $_POST['valor'];
-            $hora_inicio = $_POST['hora_inicio'];
-            $hora_fim = $_POST['hora_fim'];
-            $veiculo = $_POST['veiculo_id'];
-            $motorista = $_POST['motorista_id'];
-            $passageiro = $_POST['passageiro_id'];
-            try{
-                $stmt = $conexao->prepare('INSERT INTO Viagens (destino,data,valor,hora_inicio,hora_fim,Veiculos_id,Motoristas_id,Passageiros_id) VALUES (?,?,?,?,?,?,?,?);');
-                if($stmt-> execute([$destino,$data,$valor,$hora_inicio,$hora_fim,$veiculo,$motorista,$passageiro]))
-                    {
-                        echo "<p>Cadastro Realizado!</p>";
-                    }
-                    else{
-                        echo "<p>Erro ao cadastrar! Tente novamente</p>";
-                    }
-            } catch(Exception $e){
-                echo "Erro: ".$e->getMessage();
-            }
-        }
-?>
 
 <?php
     require_once('../rodape.php');

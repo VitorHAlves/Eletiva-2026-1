@@ -39,6 +39,11 @@
                 <div class="card-header bg-dark text-white py-3 rounded-top-4">
                     <h5 class="mb-0 px-2">| Alterar Motorista</h5>
                 </div>
+                <?php if (!empty($mensagem)): ?>
+                    <div class="alert alert-success text-center">
+                        <strong><?= $mensagem ?></strong>
+                    </div>
+                <?php endif; ?>
                 <div class="card-body p-4">
                     <form method="post">
                         <div class="row g-3 mb-3">
@@ -84,9 +89,6 @@
         </div>
     </div>
 </div>
-<?php
-    echo $mensagem;
-?>
 
 
 <?php

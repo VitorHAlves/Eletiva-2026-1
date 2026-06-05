@@ -1,5 +1,28 @@
 <?php
     require_once('../cabecalho.php');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            require_once('../conexao.php');
+            $nome = $_POST['nome'];
+            $data_nasc = $_POST['data_nasc'];
+            $cpf = $_POST['cpf'];
+            $email = $_POST['email'];
+            $telefone = $_POST['telefone'];
+            $cnh = $_POST['cnh'];
+            try{
+                $stmt = $conexao->prepare('INSERT INTO Motoristas (nome,data_nascimento,cpf,email,telefone,cnh) VALUES (?,?,?,?,?,?);');
+                if($stmt-> execute([$nome,$data_nasc,$cpf,$email,$telefone,$cnh]))
+                    {
+                        $mensagem = "<p>Cadastro Realizado!</p>";
+                    }
+                    else{
+                        echo "<p>Erro ao cadastrar! Tente novamente</p>";
+                    }
+            } catch(Exception $e){
+                echo "Erro: ".$e->getMessage();
+            }
+        }
+
 ?>
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -8,6 +31,11 @@
                     <div class="card-header bg-dark text-white py-3 rounded-top-4">
                         <h5 class="mb-0 px-2">| Novo Motorista</h5>
                     </div>
+                <?php if (!empty($mensagem)): ?>
+                    <div class="alert alert-success text-center">
+                        <strong><?= $mensagem ?></strong>
+                    </div>
+                <?php endif; ?>
                     <div class="card-body p-4">
                         <form method="post">
                             <div class="row g-3 mb-3">
@@ -53,31 +81,6 @@
             </div>
         </div>
     </div>
-<?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-        {
-            require_once('../conexao.php');
-            $nome = $_POST['nome'];
-            $data_nasc = $_POST['data_nasc'];
-            $cpf = $_POST['cpf'];
-            $email = $_POST['email'];
-            $telefone = $_POST['telefone'];
-            $cnh = $_POST['cnh'];
-            try{
-                $stmt = $conexao->prepare('INSERT INTO Motoristas (nome,data_nascimento,cpf,email,telefone,cnh) VALUES (?,?,?,?,?,?);');
-                if($stmt-> execute([$nome,$data_nasc,$cpf,$email,$telefone,$cnh]))
-                    {
-                        echo "<p>Cadastro Realizado!</p>";
-                    }
-                    else{
-                        echo "<p>Erro ao cadastrar! Tente novamente</p>";
-                    }
-            } catch(Exception $e){
-                echo "Erro: ".$e->getMessage();
-            }
-        }
-?>
-
 <?php
     require_once('../rodape.php');
 ?>

@@ -1,5 +1,24 @@
 <?php
     require_once('../cabecalho.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            require_once('../conexao.php');
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $telefone = $_POST['telefone'];
+            try{
+                $stmt = $conexao->prepare('INSERT INTO Passageiros (nome,email,telefone) VALUES (?,?,?);');
+                if($stmt-> execute([$nome,$email,$telefone]))
+                    {
+                        $mensagem = "<p>Cadastro Realizado!</p>";
+                    }
+                    else{
+                        echo "<p>Erro ao cadastrar! Tente novamente</p>";
+                    }
+            } catch(Exception $e){
+                echo "Erro: ".$e->getMessage();
+            }
+        }
 ?>
 <div class = "container mt-5">
     <div class="row justify-content-center">
@@ -9,6 +28,11 @@
                 <div class="card-header bg-dark text-white py-3 rounded-top-4">
                     <h5 class="mb-0 px-2">| Novo Passageiro</h5>
                 </div>
+                <?php if (!empty($mensagem)): ?>
+                    <div class="alert alert-success text-center">
+                        <strong><?= $mensagem ?></strong>
+                    </div>
+                <?php endif; ?>
                 <div class="card-body p-4">
                     <form method="post">
                         <div class="mb-3">
@@ -33,28 +57,6 @@
         </div>
     </div>    
 </div>
-<?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-        {
-            require_once('../conexao.php');
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $telefone = $_POST['telefone'];
-            try{
-                $stmt = $conexao->prepare('INSERT INTO Passageiros (nome,email,telefone) VALUES (?,?,?);');
-                if($stmt-> execute([$nome,$email,$telefone]))
-                    {
-                        echo "<p>Cadastro Realizado!</p>";
-                    }
-                    else{
-                        echo "<p>Erro ao cadastrar! Tente novamente</p>";
-                    }
-            } catch(Exception $e){
-                echo "Erro: ".$e->getMessage();
-            }
-        }
-?>
-
 <?php
     require_once('../rodape.php');
 ?>
